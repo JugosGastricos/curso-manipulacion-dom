@@ -41,3 +41,10 @@ log(docQuerySelector('.text-content'));
 
 log("Query selector all");
 log(docQuerySelectorAll('.text-content'));
+
+//Clase 5
+const randomClassItems = docQuerySelectorAll('.text-content');
+log(randomClassItems);
+
+const arrayOfRandomClassItems = Array.from(randomClassItems);
+log(arrayOfRandomClassItems);
