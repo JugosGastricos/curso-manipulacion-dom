@@ -20,31 +20,33 @@ function docQuerySelectorAll(item){
     return document.querySelectorAll(item);
 }
 
-function log(item){
-    return console.log(item);
-}
+//This makes it hard to pinpoint the exact locations of the logs
+// function log(item){
+//     return console.log(item);
+// }
 
-log("Using id");
-log(docGetElementById('emptySpan'));
+console.log("Using id");
+console.log(docGetElementById('emptySpan'));
 
-log("Using class");
-log(docGetElementsByClassName('text-content'));
+console.log("Using class");
+console.log(docGetElementsByClassName('text-content'));
 
-log("Using tag");
-log(docGetElementsByTagName('p'));
+console.log("Using tag");
+console.log(docGetElementsByTagName('p'));
 
-log("Query selector an id");
-log(docQuerySelector('#textSpan'));
+console.log("Query selector an id");
+console.log(docQuerySelector('#textSpan'));
 
-log("Query selector a class");
-log(docQuerySelector('.text-content'));
+console.log("Query selector a class");
+console.log(docQuerySelector('.text-content'));
 
-log("Query selector all");
-log(docQuerySelectorAll('.text-content'));
+console.log("Query selector all");
+console.log(docQuerySelectorAll('.text-content'));
 
 //Clase 5
 const randomClassItems = docQuerySelectorAll('.text-content');
-log(randomClassItems);
+console.log(randomClassItems);
 
 const arrayOfRandomClassItems = Array.from(randomClassItems);
-log(arrayOfRandomClassItems);
+console.log(arrayOfRandomClassItems);
+
