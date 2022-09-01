@@ -18,6 +18,10 @@ html {
     height: 100vh;
 }
 
+.main-content{
+    margin: 0 auto;
+    max-width: 800px;
+}
 .header, .footer{
     font-size: var(--standard-font);
     height: 60px;

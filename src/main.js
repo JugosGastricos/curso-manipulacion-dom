@@ -95,4 +95,14 @@ function clase6 () {
     mainTitle.insertAdjacentElement('afterbegin', anotherTitle);
 }
 
-clase6();
+// clase6();
+
+//Clase 7
+
+function clase7(){
+    const loremText = document.querySelector('p.lorem');
+    console.log(loremText.outerHTML);
+    console.log(loremText.innerHTML);
+}
+
+clase7();
