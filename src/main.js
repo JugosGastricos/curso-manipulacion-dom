@@ -1,56 +1,32 @@
 //Clase 4: 
 
 function clase4 (){
-    function docGetElementById(item){
-        return document.getElementById(item);
-    }
-
-    function docGetElementsByClassName(item){
-        return document.getElementsByClassName(item);
-    }
-
-    function docGetElementsByTagName(item){
-        return document.getElementsByTagName(item);
-    }
-
-    function docQuerySelector(item){
-        return document.querySelector(item);
-    }
-
-    function docQuerySelectorAll(item){
-        return document.querySelectorAll(item);
-    }
-
-    //This makes it hard to pinpoint the exact locations of the logs
-    // function log(item){
-    //     return console.log(item);
-    // }
 
     console.log("Using id");
-    console.log(docGetElementById('emptySpan'));
+    console.log(document.getElementById('emptySpan'));
 
     console.log("Using class");
-    console.log(docGetElementsByClassName('text-content'));
+    console.log(document.getElementsByClassName('text-content'));
 
     console.log("Using tag");
-    console.log(docGetElementsByTagName('p'));
+    console.log(document.getElementsByTagName('p'));
 
     console.log("Query selector an id");
-    console.log(docQuerySelector('#textSpan'));
+    console.log(document.querySelector('#textSpan1'));
 
     console.log("Query selector a class");
-    console.log(docQuerySelector('.text-content'));
+    console.log(document.querySelector('.text-content'));
 
     console.log("Query selector all");
-    console.log(docQuerySelectorAll('.text-content'));
-    }
+    console.log(document.querySelectorAll('.text-content'));
+}
 
 // clase4();
 
 //Clase 5
 
 function clase5(){
-    const randomClassItems = docQuerySelectorAll('.text-content');
+    const randomClassItems = document.querySelectorAll('.text-content');
     console.log(randomClassItems);
 
     const arrayOfRandomClassItems = Array.from(randomClassItems);
@@ -87,12 +63,12 @@ function clase6 () {
 
     //colocando el título antes de la etiqueta h1
     mainTitle.insertAdjacentElement('beforebegin', anotherTitle);
-    //colocando el título después de la etiqueta h1
-    mainTitle.insertAdjacentElement('afterend', anotherTitle);
-    //colocando el título justo antes de la etiqueta de cierre de h1
-    mainTitle.insertAdjacentElement('beforeend', anotherTitle);
     //colocando el título justo después de la etiqueta de apertura de h1
     mainTitle.insertAdjacentElement('afterbegin', anotherTitle);
+    //colocando el título justo antes de la etiqueta de cierre de h1
+    mainTitle.insertAdjacentElement('beforeend', anotherTitle);
+    //colocando el título después de la etiqueta h1
+    mainTitle.insertAdjacentElement('afterend', anotherTitle);
 }
 
 // clase6();
