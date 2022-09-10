@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+#carpeta del proyecto que contiene el repo del profesor pero que no me funciona :(
+
+proyecto-curso
