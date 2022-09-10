@@ -81,4 +81,29 @@ function clase7(){
     console.log(loremText.innerHTML);
 }
 
-clase7();
+// clase7();
+
+function clase9() {
+    //eliminar un nodo a partir de un padre directo
+    const mainContent = document.querySelector('.main-content--content');
+    const loremText = document.querySelector('p.lorem');
+    mainContent.removeChild(loremText);
+    
+    //hallando el padre directo con parentElement
+    const textInP = document.querySelector('p.text-content')
+    const parentNode = textInP.parentElement;
+    console.log(parentNode);
+    parentNode.removeChild(textInP);
+
+    //utilizando remove
+    const lastOne = document.querySelector('#textSpan3');
+    lastOne.remove();
+
+    //reemplazando un nodo con replaceChild
+    const oneMore = document.querySelector('#textSpan2');
+    const somethingElse = document.createElement('h4');
+    somethingElse.textContent = 'Pues uno más de más :P';
+    mainContent.replaceChild(somethingElse, oneMore);
+}
+
+clase9();

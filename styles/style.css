@@ -38,11 +38,12 @@ html {
 }
 
 .main-content--content {
-    display: flex;
-    flex-direction: column;
     font-size: var(--standard-font);
+    border: 1px dotted yellow;
+
 }
 
 .text-content {
-    margin: 20px;
+    display: block;
+    margin: 20px auto;
 }
