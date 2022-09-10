@@ -83,6 +83,8 @@ function clase7(){
 
 // clase7();
 
+//Clase 9
+
 function clase9() {
     //eliminar un nodo a partir de un padre directo
     const mainContent = document.querySelector('.main-content--content');
@@ -106,4 +108,32 @@ function clase9() {
     mainContent.replaceChild(somethingElse, oneMore);
 }
 
-clase9();
+// clase9();
+
+//Clase 10
+
+function clase10() {
+    //Agregar 100 inputs al final de todos los elementos
+    //Forma no óptima:
+    const mainContent = document.querySelector('.main-content--content');
+    function noOptima(){
+        for (let i = 0; i < 100; i++){
+            const node = document.createElement('input');
+            mainContent.insertAdjacentElement('beforeend', node);
+        }
+    }
+    // noOptima();
+
+    //Forma óptima:
+    function optima(){
+        const arr = [];
+        for (let i = 0; i < 100; i++){
+            const node = document.createElement('input');
+            arr.push(node);
+        }
+        mainContent.append(...arr)
+    }
+    optima();
+}
+
+clase10();
