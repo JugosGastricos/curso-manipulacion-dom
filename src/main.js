@@ -144,6 +144,15 @@ function clase12(){
 
     const avoContainer = document.querySelector('#app');
     const arrDOM = [];
+    const formatPrice = (price) => {
+        const newPrice = new window.Intl.NumberFormat('en-EN', {
+            style: "currency",
+            currency: 'USD'
+        }).format(price);
+
+        return newPrice;
+    }
+
     //usando async/await
     
     const fetchData = async () => {
@@ -163,7 +172,7 @@ function clase12(){
 
                 const newAvoPrice = document.createElement('p');
                 newAvoPrice.className = 'avocado-price';
-                newAvoPrice.textContent = `Price: $${item.price}`;
+                newAvoPrice.textContent = `Price: ${formatPrice(item.price)}`;
 
                 const newAvoDescription = document.createElement('p');
                 newAvoDescription.className = 'avocado-description';
@@ -194,12 +203,12 @@ function clase12(){
                 newDiv.className = 'single-avocado';
 
                 const newAvoName = document.createElement('p');
-                newAvoName.className = 'avocado-name'
+                newAvoName.className = 'avocado-name';
                 newAvoName.textContent = item.name;
 
                 const newAvoPrice = document.createElement('p');
                 newAvoPrice.className = 'avocado-price';
-                newAvoPrice.textContent = `Price: $${item.price}`;
+                newAvoPrice.textContent = `Price: ${formatPrice(item.price)}`;
 
                 const newAvoDescription = document.createElement('p');
                 newAvoDescription.className = 'avocado-description';
