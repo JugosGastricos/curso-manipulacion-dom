@@ -52,8 +52,6 @@ html {
 .avocado-content {
     display: flex;
     flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
     align-items: center;
     margin: 10px auto;
 }

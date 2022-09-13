@@ -140,21 +140,21 @@ function clase10() {
 
 function clase12(){
     //api de los aguacates: https://platzi-avo.vercel.app/api/avo
-    const URL = 'https://platzi-avo.vercel.app/api/avo'
+    const URL = 'https://platzi-avo.vercel.app'
 
-    const avoContainer = document.querySelector('.avocado-content');
+    const avoContainer = document.querySelector('#app');
     const arrDOM = [];
     //usando async/await
     
     const fetchData = async () => {
         try {
-            const apiData = await window.fetch(URL);
+            const apiData = await window.fetch(URL + '/api/avo');
             const avoData = await apiData.json();
             avoData.data.forEach(item => {
                 const newDiv = document.createElement('div');
 
                 const newImg = document.createElement('img');
-                newImg.setAttribute('src', `https://platzi-avo.vercel.app${item.image}`);
+                newImg.setAttribute('src', `${URL + item.image}`);
                 newDiv.className = 'single-avocado';
 
                 const newAvoName = document.createElement('p');
@@ -184,13 +184,13 @@ function clase12(){
 
     //usando promesas
     function promiseData(){
-        window.fetch(URL)
+        window.fetch(URL + '/api/avo')
             .then((apiData) => apiData.json())
             .then((avoData) => avoData.data.forEach(item => {
                 const newDiv = document.createElement('div');
 
                 const newImg = document.createElement('img');
-                newImg.setAttribute('src', `https://platzi-avo.vercel.app${item.image}`);
+                newImg.setAttribute('src', `${URL + item.image}`);
                 newDiv.className = 'single-avocado';
 
                 const newAvoName = document.createElement('p');
