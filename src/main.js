@@ -137,3 +137,83 @@ function clase10() {
 }
 
 // clase10();
+
+function clase12(){
+    //api de los aguacates: https://platzi-avo.vercel.app/api/avo
+    const URL = 'https://platzi-avo.vercel.app/api/avo'
+
+    const avoContainer = document.querySelector('.avocado-content');
+    const arrDOM = [];
+    //usando async/await
+    
+    const fetchData = async () => {
+        try {
+            const apiData = await window.fetch(URL);
+            const avoData = await apiData.json();
+            avoData.data.forEach(item => {
+                const newDiv = document.createElement('div');
+
+                const newImg = document.createElement('img');
+                newImg.setAttribute('src', `https://platzi-avo.vercel.app${item.image}`);
+                newDiv.className = 'single-avocado';
+
+                const newAvoName = document.createElement('p');
+                newAvoName.className = 'avocado-name'
+                newAvoName.textContent = item.name;
+
+                const newAvoPrice = document.createElement('p');
+                newAvoPrice.className = 'avocado-price';
+                newAvoPrice.textContent = `Price: $${item.price}`;
+
+                const newAvoDescription = document.createElement('p');
+                newAvoDescription.className = 'avocado-description';
+                newAvoDescription.textContent = item.attributes.description;
+
+                newDiv.append(newImg, newAvoName, newAvoPrice, newAvoDescription);
+
+                arrDOM.push(newDiv);
+            });
+            avoContainer.append(...arrDOM);
+            console.log(arrDOM);
+        } catch {
+            console.error(new Error(apiData.status))
+        }
+    }
+
+    fetchData();
+
+    //usando promesas
+    function promiseData(){
+        window.fetch(URL)
+            .then((apiData) => apiData.json())
+            .then((avoData) => avoData.data.forEach(item => {
+                const newDiv = document.createElement('div');
+
+                const newImg = document.createElement('img');
+                newImg.setAttribute('src', `https://platzi-avo.vercel.app${item.image}`);
+                newDiv.className = 'single-avocado';
+
+                const newAvoName = document.createElement('p');
+                newAvoName.className = 'avocado-name'
+                newAvoName.textContent = item.name;
+
+                const newAvoPrice = document.createElement('p');
+                newAvoPrice.className = 'avocado-price';
+                newAvoPrice.textContent = `Price: $${item.price}`;
+
+                const newAvoDescription = document.createElement('p');
+                newAvoDescription.className = 'avocado-description';
+                newAvoDescription.textContent = item.attributes.description;
+
+                newDiv.append(newImg, newAvoName, newAvoPrice, newAvoDescription);
+
+                arrDOM.push(newDiv);
+            }))
+            .then(() => avoContainer.append(...arrDOM))
+            .catch((error) => console.error(error))
+    }
+
+    // promiseData();
+}
+
+clase12();
