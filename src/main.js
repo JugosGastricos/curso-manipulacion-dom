@@ -136,4 +136,4 @@ function clase10() {
     optima();
 }
 
-clase10();
+// clase10();

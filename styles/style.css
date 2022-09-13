@@ -18,7 +18,7 @@ html {
     height: 100vh;
 }
 
-.main-content{
+.main-content, .avocado-content{
     margin: 0 auto;
     max-width: 800px;
 }
@@ -46,4 +46,34 @@ html {
 .text-content {
     display: block;
     margin: 20px auto;
+}
+
+/* avocado styling */
+.avocado-content {
+    margin: 10px auto;
+}
+
+.single-avocado {
+    width: 300px;
+    height: 350px;
+    border: 2px solid greenyellow;
+}
+
+.avocado-content img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid white;
+    margin: 10px auto;
+    box-shadow: 0 1px 10px 2px rgba(133, 255, 47, 0.5);
+}
+
+.avocado-name {
+    font-size: 2rem;
+    padding: 0 0 10px;
+
+}
+
+.avocado-description {
+    padding: 10px 20px;
+    text-align: justify;
 }
