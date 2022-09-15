@@ -225,4 +225,44 @@ function clase12(){
     // promiseData();
 }
 
-clase12();
+// clase12();
+
+function clase16() {
+    const formContainer = document.querySelector('.main-content--form');
+    
+    const textFormLabel = document.createElement('label');
+    textFormLabel.setAttribute('for', 'random-input');
+    textFormLabel.innerText = 'Type something random: ';
+
+    const textForm = document.createElement('input');
+    textForm.setAttribute('type', 'text');
+    textForm.setAttribute('id', 'random-input')
+    formContainer.append(textFormLabel ,textForm);
+
+    function click() {
+        textForm.addEventListener('click', () => {
+            console.log('Ha sucedido un click')
+        });
+    }
+    click();
+    
+    function click2() {
+        const click1 = console.log('Ha sucedido otro click :P');
+        const click2 = console.log('Ha sucedido un tercer click lol');
+
+        textForm.addEventListener('click', click1);
+        textForm.addEventListener('click', click2);
+
+        textForm.removeEventListener('click', click2);
+    }
+    click2();
+    
+    function input(){
+        textForm.addEventListener('input', () => {
+            console.log('Ha sucedido algo :O: ' + textForm.value);
+        });
+    }
+    input();
+}
+
+clase16();
