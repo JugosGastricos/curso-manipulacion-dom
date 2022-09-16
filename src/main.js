@@ -265,4 +265,24 @@ function clase16() {
     input();
 }
 
-clase16();
+// clase16();
+
+function clase17(){
+    clase12();
+
+    const randomEvent = (evento) => console.log(`La llamada proviene del: ${evento.currentTarget.tagName}`)
+    const body = document.querySelector('body');
+    const avoContainer = document.querySelector('.avocado-content');
+    
+    window.setTimeout(() => {
+        const firstTitle = avoContainer.firstElementChild;
+        body.addEventListener('click', randomEvent);
+        firstTitle.firstElementChild.addEventListener('click', (evento) => {
+            evento.stopPropagation();
+            console.log(`La llamada proviene del: ${evento.currentTarget.tagName}`);
+        });
+        firstTitle.addEventListener('click', randomEvent);
+    }, 1000);
+}
+
+clase17();
