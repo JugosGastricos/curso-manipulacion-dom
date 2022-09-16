@@ -282,7 +282,18 @@ function clase17(){
             console.log(`La llamada proviene del: ${evento.currentTarget.tagName}`);
         });
         firstTitle.addEventListener('click', randomEvent);
+        
     }, 1000);
+    
+    function clase18(){
+        const titleAlert = (evento) => {
+            if(evento.target.className === 'avocado-name'){
+                let avoTitle = evento.target.innerText;
+                console.log(`Hola mi nombre es ${avoTitle} y esto es jackass`);
+            }
+        }
+        document.addEventListener('click', titleAlert);
+    }
+    clase18();
 }
-
 clase17();
