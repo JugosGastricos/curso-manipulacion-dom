@@ -296,4 +296,34 @@ function clase17(){
     }
     clase18();
 }
-clase17();
+// clase17();
+
+function clase20() {
+    const infoArr = [];
+    const avoContainer = document.querySelector('#app');
+    avoContainer.style.display = 'block';
+
+    const newImgs = () => {
+        const newDiv = document.createElement('div');
+
+        const newImg = document.createElement('img');
+        function newImgss() {
+            const img = 'https://source.unsplash.com/random'
+            return img;
+        }
+        newImg.setAttribute('src', newImgss());
+        newDiv.className = 'single-avocado';
+
+        const newAvoName = document.createElement('p');
+        newAvoName.className = 'avocado-name';
+        newAvoName.textContent = 'A random image';
+
+        newDiv.append(newImg, newAvoName);
+        avoContainer.append(newDiv);
+    }
+    
+    newImgs();
+    avoContainer.addEventListener('click', newImgs);
+}
+
+clase20();
