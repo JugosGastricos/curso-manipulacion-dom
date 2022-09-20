@@ -301,17 +301,34 @@ function clase17(){
 function clase20() {
     const infoArr = [];
     const avoContainer = document.querySelector('#app');
+    avoContainer.style.cssText = `
+        height: 500px;
+        overflow: scroll;
+    `;
+
     avoContainer.style.display = 'block';
+    const button = document.createElement('button');
+    button.value = 'Load Img';
+    button.type = 'button';
+    button.innerText = 'Load Img';
+    button.style.cssText = `
+        margin: 5px 0;
+        padding: 10px;
+        border-radius: 5px;
+    `;
+
+    avoContainer.insertAdjacentElement('beforebegin', button);
 
     const newImgs = () => {
         const newDiv = document.createElement('div');
 
         const newImg = document.createElement('img');
         function newImgss() {
-            const img = 'https://source.unsplash.com/random'
+            const img = 'https://source.unsplash.com/random';
             return img;
         }
         newImg.setAttribute('src', newImgss());
+        // newImg.setAttribute('load', 'lazy');
         newDiv.className = 'single-avocado';
 
         const newAvoName = document.createElement('p');
@@ -322,8 +339,7 @@ function clase20() {
         avoContainer.append(newDiv);
     }
     
-    newImgs();
-    avoContainer.addEventListener('click', newImgs);
+    button.addEventListener('click', newImgs);
 }
 
 clase20();
