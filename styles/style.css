@@ -75,7 +75,7 @@ html {
     border: 1px solid white;
     margin: 20px auto;
     box-shadow: 0 1px 10px 2px rgba(133, 255, 47, 0.5);
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .avocado-name {
@@ -90,4 +90,18 @@ html {
 .avocado-description {
     padding: 20px;
     text-align: justify;
+}
+
+.load-img-button:hover{
+    cursor: pointer;
+    background-color: azure;
+}
+
+.load-img-button:active{
+    background-color: beige;
+}
+
+.clean-button:hover{
+    cursor: pointer;
+    text-decoration: underline;
 }

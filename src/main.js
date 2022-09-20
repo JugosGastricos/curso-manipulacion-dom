@@ -299,7 +299,9 @@ function clase17(){
 // clase17();
 
 function clase20() {
-    const infoArr = [];
+    let loadedImagesArr = 0;
+    let createdImagesArr = 0;
+
     const avoContainer = document.querySelector('#app');
     avoContainer.style.cssText = `
         height: 500px;
@@ -308,52 +310,81 @@ function clase20() {
 
     avoContainer.style.display = 'block';
     const button = document.createElement('button');
+    button.className = 'load-img-button';
     button.value = 'Load Img';
     button.type = 'button';
     button.innerText = 'Load Img';
     button.style.cssText = `
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
+        margin: 5px 0;
+        padding: 10px;
+        border-radius: 5px;
     `;
     
     avoContainer.insertAdjacentElement('beforebegin', button);
-    
+
+    //botón para limpiar el contenedor
+    const cleanButton = document.createElement('span');
+    cleanButton.textContent = 'Limpiar';
+    cleanButton.style.cssText = `
+        display: block;
+        margin: 3px auto;
+        width: 50px;
+        font-size: 1.3rem;
+        padding: 7px 0;
+    `;
+    cleanButton.className = 'clean-button';
+
+    button.insertAdjacentElement('afterend', cleanButton);
+    //botón y función para limpiar el contenedor de las imágenes
+    cleanButton.addEventListener('click', () => {
+        avoContainer.innerHTML = '';
+        loadedImagesArr = 0;
+        createdImagesArr = 0;
+        console.clear();
+    })
+
     function clase22() {
         const isIntersecting = (entry) => {
-            return entry.isIntersecting
+            return entry.isIntersecting;
         }
 
-        const action = (entry) => {
+        const loadImg = (entry) => {
             const node = entry.target;
-            console.log('lol');
-            observer.unobserve(node)
+            const image = node.dataset.imgLink
+            loadedImagesArr ++;
+            node.src = image;
+            observer.unobserve(node);
+            imgCount();
         }
-
+        
         const observer = new IntersectionObserver((entries) => {
-            entries.filter(isIntersecting).forEach(action)
+            entries.filter(isIntersecting).forEach(loadImg);
         })
-
-        const registerImage = (imagen) => {
-            // Intersection observer => observer(imagen)
-            observer.observe(imagen);
+        
+        const registerImage = (imgContainer) => {
+            // Intersection observer => observer(imgContainer)
+            observer.observe(imgContainer);
         }
+        
+        
         return registerImage;
     }
 
     const class22 = clase22();
 
-
+    
     const newImgs = () => {
         const newDiv = document.createElement('div');
 
         const newImg = document.createElement('img');
-        function newImgss() {
-            const img = 'https://source.unsplash.com/random';
-            return img;
-        }
-        newImg.setAttribute('src', newImgss());
-        // newImg.setAttribute('load', 'lazy');
+        
+        //con la propiedad dataset puedo crear cualquier atributo que desee en cualquier etiqueta HTML y eso usarlo a mi favor en JS 🤯
+        newImg.dataset.imgLink = 'https://source.unsplash.com/random';
+        // newImg.setAttribute('loading', 'lazy');
+        newImg.style.cssText = `
+            background-color: gray;
+        `;
+
         newDiv.className = 'single-avocado';
 
         const newAvoName = document.createElement('p');
@@ -364,10 +395,19 @@ function clase20() {
         avoContainer.append(newDiv);
 
         class22(newImg);
+
+        createdImagesArr ++;
+        imgCount();
+    }
+
+    //función que muestra cuántas imágenes han sido agregadas y cuántas han sido cargadas
+    function imgCount(){
+        console.log(`Imágenes creadas: ${createdImagesArr}`);
+        console.log(`Imágenes cargadas: ${loadedImagesArr}`);
+        console.log('---------------------');
     }
     
     button.addEventListener('click', newImgs);
-
 }
 
 clase20();
