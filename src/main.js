@@ -312,12 +312,37 @@ function clase20() {
     button.type = 'button';
     button.innerText = 'Load Img';
     button.style.cssText = `
-        margin: 5px 0;
-        padding: 10px;
-        border-radius: 5px;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
     `;
-
+    
     avoContainer.insertAdjacentElement('beforebegin', button);
+    
+    function clase22() {
+        const isIntersecting = (entry) => {
+            return entry.isIntersecting
+        }
+
+        const action = (entry) => {
+            const node = entry.target;
+            console.log('lol');
+            observer.unobserve(node)
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.filter(isIntersecting).forEach(action)
+        })
+
+        const registerImage = (imagen) => {
+            // Intersection observer => observer(imagen)
+            observer.observe(imagen);
+        }
+        return registerImage;
+    }
+
+    const class22 = clase22();
+
 
     const newImgs = () => {
         const newDiv = document.createElement('div');
@@ -337,9 +362,12 @@ function clase20() {
 
         newDiv.append(newImg, newAvoName);
         avoContainer.append(newDiv);
+
+        class22(newImg);
     }
     
     button.addEventListener('click', newImgs);
+
 }
 
 clase20();
